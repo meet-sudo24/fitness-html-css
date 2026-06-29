@@ -1,0 +1,722 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none !important;
+    transition: all .2s linear;
+}
+
+
+$orange : #ff5421;
+$white : #fff;
+$black : #000;
+$light-color : #ccc;
+$bg-color : #1d0e15;
+$border : .1rem solid rgba(255, 255, 255, .2);
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 2rem;
+}
+
+@mixin title-text($titleText) {
+    font-size: $titleText;
+    text-transform: capitalize;
+    color: $white;
+}
+
+@mixin graph-text($graphText) {
+    font-size: $graphText;
+    line-height: 2;
+    color: $light-color;
+}
+
+html {
+    overflow-x: hidden;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 8rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $bg-color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $orange;
+        border-radius: 16px;
+    }
+}
+
+body {
+    background-color: $bg-color;
+}
+
+.btn {
+    color: $white;
+    text-transform: capitalize;
+    background-color: $orange;
+    font-size: 1.8rem;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+}
+
+.btn:hover {
+    background-color: $white;
+    color: $orange;
+    transition: .3s linear;
+}
+
+.heading {
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    color: $white;
+    text-transform: capitalize;
+
+    span {
+        font-size: 2.5rem;
+        color: $orange;
+        text-transform: capitalize;
+    }
+
+    h3 {
+        padding-top: 2rem;
+        font-size: 3.5rem;
+    }
+}
+
+
+.header {
+    z-index: 999;
+    padding: 3rem 10rem 0rem 15rem;
+
+    &.active {
+        background: $white;
+        padding: 3rem 10rem 3rem 15rem;
+
+        .logo {
+            color: $black;
+        }
+
+        .nav a {
+            color: $black;
+        }
+
+        #menu-btn {
+            color: $black;
+        }
+    }
+
+    .logo {
+        font-size: 2.5rem;
+        color: $white;
+        font-weight: bolder;
+    }
+
+    span {
+        color: $orange;
+    }
+}
+
+
+.nav a {
+    font-size: 2rem;
+    color: $white;
+    text-transform: capitalize;
+    padding-inline: 1.5rem;
+
+    &:hover {
+        color: $orange;
+    }
+
+    &.active {
+        border-bottom: .2rem solid $white;
+    }
+
+
+}
+
+#menu-btn {
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: $white;
+
+    &.fa-times {
+        transform: rotate(360deg);
+    }
+}
+
+.home {
+    background: url(images/home-bg.jpg);
+    background-size: cover;
+    background-position: center;
+    padding-top: 15rem;
+    background-attachment: fixed;
+
+    span {
+        @include title-text(2.5rem);
+        color: $orange;
+        margin-bottom: 2rem;
+    }
+
+    h3 {
+        @include title-text(6rem);
+        color: $white;
+    }
+}
+
+.about {
+
+    span {
+        color: $orange ;
+        font-size: 2.5rem;
+        text-transform: capitalize;
+    }
+
+    h3 {
+        @include title-text(2.7rem);
+        padding: 1rem 0;
+    }
+
+    p {
+        @include graph-text(1.5rem);
+        padding: 1rem 0;
+    }
+
+    ul {
+        list-style: none;
+
+        li {
+            padding-top: .5rem;
+            @include title-text(1.7rem);
+
+            i {
+                padding-right: 1rem;
+                color: $orange;
+            }
+        }
+    }
+
+
+}
+
+.counter {
+    background: url(../images/counter-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.counter .container .row .col-md-3 {
+    display: flex;
+    padding: 2rem 0;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    text-transform: capitalize;
+}
+
+.counter .container .row .col-md-3 .box h4 {
+    color: $orange;
+    font-size: 4rem;
+}
+
+.counter .container .row .col-md-3 .box p {
+    color: $white;
+    font-size: 2rem;
+}
+
+.course {
+    .box-container {
+        .row {
+            .col-md-6 {
+                padding-bottom: 3rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .box {
+                    background-color: $bg-color;
+                    border: $border;
+                    width: 30rem;
+
+                    .img-box {
+                        width: 100%;
+                        height: 100%;
+                        overflow: hidden;
+
+                        .card-img-top:hover {
+                            transform: scale(1.3);
+                        }
+                    }
+
+                    .content {
+                        padding: 1rem;
+
+                        .icons {
+                            display: flex;
+                            justify-content: space-between;
+
+                            span {
+                                font-size: 1.5rem;
+                                color: $white;
+
+                                i {
+                                    color: $orange;
+                                }
+                            }
+                        }
+
+                        h3 {
+                            @include title-text(2.2rem);
+                            padding-top: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.pricing {
+    .box-container {
+        margin-top: 10rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+
+        .box {
+            border: $border;
+            border-radius: 16px;
+            padding: 3rem;
+            width: 50rem;
+            background-color: $bg-color;
+
+            h3 {
+                @include title-text(2.5rem);
+            }
+
+            .price {
+                @include title-text(6rem);
+                font-weight: 700;
+
+                span {
+                    @include graph-text(2rem);
+                }
+            }
+
+            .list {
+                @include title-text(2rem);
+                padding-top: 2rem;
+
+                .fa-check {
+                    color: $orange;
+                }
+
+                .fa-xmark {
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.pricing .box-container .box:nth-child(2) {
+    transform: scale(1.2);
+}
+
+.join {
+    margin-top: 15rem;
+
+    span {
+        color: $orange;
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 3.5rem;
+        color: $white;
+        line-height: 8rem;
+    }
+
+    p {
+        color: $white;
+        font-size: 2rem;
+        line-height: 4rem;
+    }
+}
+
+.team {
+    .box {
+        overflow: hidden;
+        position: relative;
+
+        .text {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background: $white;
+            padding: 1rem 1rem;
+            transition: all 0.5s ease-in-out;
+
+            span {
+                color: $orange;
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 2.5rem;
+            }
+        }
+
+        .icons {
+            position: absolute;
+            left: -100%;
+            bottom: 0;
+            background: $white;
+            padding: 1rem 2rem;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-grow: row;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 3rem;
+
+            a {
+                color: $black;
+            }
+
+        }
+    }
+}
+
+.team .container .box:hover .text {
+    left: -100%;
+}
+
+.team .container .box:hover .icons {
+    left: 0;
+}
+
+.team .container .box .icons a:hover {
+    color: #ff5421;
+}
+
+.course {
+
+    .col {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-left: auto;
+
+        .box {
+            background-color: $bg-color;
+            border: $border;
+
+            .img-box {
+
+                img {
+                    object-fit: cover;
+                }
+            }
+
+            .content {
+                padding: 2rem;
+
+                h1 {
+                    color: $white;
+                    font-size: 2.5rem;
+                    text-transform: capitalize;
+                }
+            }
+
+            hr {
+                color: $light-color;
+                margin: 0rem 2rem;
+            }
+
+            .icons {
+                display: flex;
+                justify-content: space-between;
+                padding: 2rem;
+
+                span {
+                    font-size: 1.5rem;
+                    color: $white;
+
+                    i {
+                        color: $orange;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+.footer {
+    background: url(../images/footer-bg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin-top: 5rem;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.footer .box-container h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.footer .box-container a {
+    display: block;
+    line-height: 2;
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+.footer .box-container a i {
+    color: #ff5421;
+    padding-right: 2rem;
+    transition: all 0.5s;
+}
+
+.footer .box-container a:hover {
+    color: #ff5421;
+}
+
+.footer .box-container a:hover i {
+    padding-right: 3rem;
+}
+
+.footer .box-container p {
+    font-size: 1.5rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.footer .box-container form>* {
+    display: block;
+}
+
+.footer .box-container form input[type=email] {
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+}
+
+.footer .box-container form .btn {
+    font-size: 1.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+//media queries
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    .join {
+
+        h3 {
+            font-size: 3rem;
+        }
+    }
+}
+
+
+
+
+
+
+
+@media (max-width:768px) {
+    .header {
+        padding: 2rem;
+
+        &.active {
+            padding: 2rem;
+        }
+
+        #menu-btn {
+            display: inline-block;
+        }
+
+        .nav {
+            position: absolute;
+            top: 99%;
+            left: 0;
+            right: 0;
+            background: $white;
+            padding: 1rem 0;
+            flex-flow: column;
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+            &.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            a {
+                color: $black;
+                margin: 1rem 2rem;
+            }
+        }
+    }
+
+    .col-md-6 {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .pricing {
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .box {
+                border: $border;
+                border-radius: 16px;
+                padding: 3rem;
+                width: 50rem;
+                background-color: $bg-color;
+                margin-bottom: 2rem;
+
+                h3 {
+                    @include title-text(2.5rem);
+                }
+
+                .price {
+                    @include title-text(6rem);
+                    font-weight: 700;
+
+                    span {
+                        @include graph-text(2rem);
+                    }
+                }
+
+                .list {
+                    @include title-text(2rem);
+                    padding-top: 2rem;
+
+                    .fa-check {
+                        color: $orange;
+                    }
+
+                    .fa-xmark {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+
+    .pricing .box-container .box:nth-child(2) {
+        transform: scale(1);
+    }
+
+    .course .container .row .col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer .box-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .footer .box-container .box{
+        padding-bottom: 4rem;
+        padding-left: 4rem;
+    }
+
+}
+
+
+
+
+
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .pricing {
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+
+            .box {
+                border: $border;
+                border-radius: 16px;
+                padding: 3rem;
+                width: 30rem;
+                background-color: $bg-color;
+                margin-bottom: 2rem;
+
+                h3 {
+                    @include title-text(2.5rem);
+                }
+
+                .price {
+                    @include title-text(6rem);
+                    font-weight: 700;
+
+                    span {
+                        @include graph-text(2rem);
+                    }
+                }
+
+                .list {
+                    @include title-text(2rem);
+                    padding-top: 2rem;
+
+                    .fa-check {
+                        color: $orange;
+                    }
+
+                    .fa-xmark {
+                        color: $white;
+                    }
+                }
+            }
+        }
+    }
+}
